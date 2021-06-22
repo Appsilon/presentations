@@ -1,0 +1,12 @@
+graph G {
+  layout=neato
+  bgcolor="transparent"
+  size="6,4"; ratio = fill;
+  node [style=filled,shape=rect];
+  ADR -- "Article in Outline" [color="0.002 0.999 0.999"];
+  ADR -- Code [color="0.002 0.999 0.999"];
+  ADR -- "Task in ClickUp" [color="0.002 0.999 0.999"];
+  ADR -- Diagrams [color="0.002 0.999 0.999"];
+  ADR -- Spike [color="0.002 0.999 0.999"];
+  ADR -- "Supporting Docs" [color="0.002 0.999 0.999"];
+}

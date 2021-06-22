@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../reveal.js/dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../reveal.js/plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section data-background="#111319">
+					<h3>Architectural Decision Records</h3>
+					<p>
+						<small>by Oleksandr Ponomarov</small>
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#111319">
+            <h2>Why ADRs?</h2>
+              <a href="https://appsilon.getoutline.com/doc/how-to-write-design-docs-aANfeHwAnF"><p class="fragment"><img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline.png"></p></a>
+					</section>
+					<section data-background="#111319">
+              <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline1.png">
+					</section>
+					<section data-background="#111319">
+              <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline2.png">
+					</section>
+				</section>
+
+        <section data-background="#111319">
+					<h2>Google Template</h2>
+          <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/google_template.png" width="50%" height="50%">
+				</section>
+
+        <section data-background="#111319">
+
+
+					<h2>What is (Software) Architecture?</h2>
+					<section id="what-is-architecture">
+
+          <aside class="notes">What is architecture?</aside>
+
+            <p class="fragment"><q>Architecture represents the significant design <em>decisions</em> that shape a system, where significant is measured by cost of change.</q><span class="fragment">— Grady Booch</span></p>
+					</section>
+				</section>
+
+        <section data-background="#111319">
+					<h2>What is Architecture Decision?</h2>
+					<section id="what-is-ad">
+
+          <aside class="notes">What is AD?</aside>
+
+						<p class="fragment">An Architectural Decision (AD) is a software design choice that addresses a functional or non-functional requirement that is architecturally significant.</p>
+					</section>
+				</section>
+
+        <section data-background="#111319">
+					<h2>What is Architecture Decision Record?</h2>
+					<section id="what-is-adr">
+
+          <aside class="notes">What is ADR?</aside>
+
+						<p class="fragment">An Architectural Decision Record (ADR) captures a single AD, such as often done when writing personal notes or meeting minutes; the collection of ADRs created and maintained in a project constitutes its decision log.</p>
+					</section>
+				</section>
+
+        <section data-background="#111319">
+					<section id="madrs">
+
+          <aside class="notes">When talking about ADRs, there's two principal things.</aside>
+
+            <p>It should be as easy as possible to:</p>
+            <ul>
+              <span class="fragment"><li>write down the ADRs</li></span>
+              <span class="fragment"><li>version them!</li></span>
+            </ul>
+            <aside class="notes">
+            </aside>
+          </section>
+        </section>
+
+        <section data-background="#111319">
+					<section id="madrs">
+
+          <aside class="notes">Markdown comes to the rescue.</aside>
+
+            <p>Markdown 🔥</p>
+          </section>
+        </section>
+
+        <section data-background="#111319">
+					<h2>ADR Template</h2>
+					<section id="adr-template">
+
+          <aside class="notes">
+            So, let's take a look at a what a typical template would look like in ADR's world.
+
+            And full disclosure of course: ADRs is just a concept, there's a bunch of templates available that can fit various project, from small to larger ones.
+            The template I personally find the most intuitive and easy to use is the one suggested my Michael Nygard in 2011, which interestingly enough is 4 year ahead the article from Google.
+            Conceptually, the document structure is similar to one we've seen so far. But let's take a closer look directly in the Markdown itself.
+          </aside>
+
+          <p class="fragment"><img class="r-frame" style="background: rgba(0,0,0,0.1);" width="1000" height="500" data-src="./images/adr_template.png"></p>
+					</section>
+        </section>
+
+				<section data-background="#111319" data-auto-animate>
+					<h2 data-id="code-title">ADR Template in Markdown</h2>
+					<pre data-id="code-animation"><code class="markdown" data-trim data-line-numbers>
+            # Title
+
+            ## Status
+            What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
+
+            ## Context
+            What is the issue that we're seeing that is motivating this decision or change?
+
+            ## Decision
+            ..
+					</code></pre>
+				</section>
+				<section data-background="#111319" data-auto-animate>
+            <aside class="notes">
+              <ul>
+                <li>The document starts with the "Title", short but discoverable label</li>
+                <li>Status: a meta field, the status of the work described, a dated list of status changes works as well</li>
+                <li>Context: what's the problem? What's the effect? Why did this problem was raised? Facts, not assumptions or opinions.</li>
+                <li>Decision: what should happen in order to mitigate the issue? How is success defined? What further recommendations are there? What are alternative solutions?</li>
+                <li>Consequences: the resulting context, either good or bad. Basically, the effect of the work described</li>
+              </ul>
+            </aside>
+					<pre data-id="code-animation"><code class="markdown" data-trim data-line-numbers="|1|3-4|6-7|9-10|12-13">
+            # Title
+
+            ## Status
+            What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
+
+            ## Context
+            What is the issue that we're seeing that is motivating this decision or change?
+
+            ## Decision
+            What is the change that we're proposing and/or doing?
+
+            ## Consequences
+            What becomes easier or more difficult to do because of this change?
+					</code></pre>
+				</section>
+
+        <section data-background="#111319">
+          ADR =~ Google Template
+        </section>
+
+        <section data-background="#111319">
+					<h2>ADR In a nutshell</h2>
+					<section id="whats-adr-in-a-nutshell">
+
+            <aside class="notes">
+              So, in a nutshell, and ADR can be treated as a very lightweight document consisting of decision taken, it might include external links and reference to third party documents whenever required, but at the same time
+              the document itself stays compact and to-the-point. It might also live anywhere, in any format. Markdown is a preference though. A bit of a spoiler, since some of you might have guessed, the ideal place to store ADRs
+              would be your project's repository.
+            </aside>
+
+            <p><span class="fragment">ADRs should be considered as</span> <span class="fragment"><em>lightweight</em> records of decision making,</span> <span class="fragment">linking in other documents and content when required,</span> <span class="fragment">keeping ADR itself compact and to-the-point.</span> <span class="fragment">It can live <em>anywhere</em>, in <em>any</em> format.</span></p>
+					</section>
+					<section>
+            <img src="graphviz.svg">
+					</section>
+        </section>
+
+        <section data-background="#111319">
+					<h2>Who writes ADRs and why?</h2>
+					<section id="who-writes-adrs">
+
+            <aside class="notes">
+              <ul>
+                <li>ADRs can and should be written by any engineer in the team. They work best when decision are taken mutually</li>
+                <li>They should be considered as living documents, providing useful documentation throughout the life of a project.</li>
+                <li>They provide a common framework for the communication of technical decisions, which allows engineers of all levels a consistent way of influencing strategy.</li>
+                <li>Having a clear, supportive process around ADRs allows the democratization of architecture, stronger team alignment, and an effective foundation for advertising various engineering concepts and best practices as well.</li>
+              </ul>
+            </aside>
+
+					<ul>
+            <span class="fragment"><li>ADRs can and should be written by any engineer in the team</li></span>
+            <span class="fragment"><li>Should be considered as living documents</li></span>
+            <span class="fragment"><li>Common framework for communication</li></span>
+            <span class="fragment"><li>Stronger team alignment, share best practices</li></span>
+					</ul>
+
+					</section>
+        </section>
+
+        <section data-background="#111319">
+					<h2>Tooling</h2>
+					<section id="tools">
+
+            <aside class="notes">
+              As always when some kind of a standard is being introduced, there's also a set of tools to interact with it. ADRs are not an exception
+              and there's a plenty of open source CLI and web applications on the market that can assist you in your day-to-day work when writing documentation.
+              The first one is kinda simple - it's a plain bash helper that manages the ADR Markdown files on your behalf, simplifying things like bootstrapping, adding or removing existing documents.
+              The second one is a more sophisticated tool written in TypeScript, which not only has the same features as adr-tools, but also works as a static website publisher,
+              allowing you to share and manage your documents in a more human-friendly way.
+            </aside>
+
+					<ul>
+            <span class="fragment"><li><a href="https://github.com/npryce/adr-tools">adr-tools</a> - bash scripts to manage ADRs in the Nygard format</li></span>
+            <span class="fragment"><li><a href="https://github.com/thomvaill/log4brains">log4brains</a> - CLI and web UI to log and publish your ADRs as a static website</li></span>
+            <span class="fragment"><li>.. & many more!</li></span>
+					</ul>
+					</section>
+        </section>
+
+        <section data-background="#111319">
+					<section id="tools">
+              Demo
+            <aside class="notes">
+              Without further ado let's jump into a real life example how me and Damian started using ADRs & log4brains just recently for one of our repositories.
+
+              Context: we decided to setup existing Appsilon's infrastructure in AWS from scratch by using best practices, things like zero-trust security, creating AWS accounts in an automated fashion.
+              In order to do so, we first considered two available options AWS CT and Terraform.
+            </aside>
+					</section>
+        </section>
+
+			</div>
+		</div>
+
+		<script src="../../reveal.js/dist/reveal.js"></script>
+		<script src="../../reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../reveal.js/plugin/search/search.js"></script>
+		<script src="../../reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="../../reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+        // Optional reveal.js plugins
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
