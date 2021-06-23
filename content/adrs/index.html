@@ -29,6 +29,9 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section data-background="#111319">
+
+          <aside class="notes">Today I'd like to talk with you a little about writing technical documentation, ADRs in particular.</aside>
+
           <h3>Architectural Decision Records</h3>
           <p>
             <small>by Oleksandr Ponomarov</small>
@@ -37,30 +40,48 @@
 
         <section>
           <section data-background="#111319">
+            <aside class="notes">
+              So, why is this a hot topic, why somebody should be concerned about writing proper technical documentation?
+              When I joined Appsilon, the first thing I went though was a bunch of pages on our Outline and this one in particular.
+            </aside>
             <h2>Why ADRs?</h2>
             <a href="https://appsilon.getoutline.com/doc/how-to-write-design-docs-aANfeHwAnF"><p class="fragment"><img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline.png"></p></a>
           </section>
           <section data-background="#111319">
+            <aside class="notes">
+              It briefly describes Appsilon's approach to writing documentation. There's a reference at the end to an article from Google, which explains how to write
+              design docs and provides a template. What's more appealing is that entire article is using the template itself.
+            </aside>
             <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline1.png">
           </section>
           <section data-background="#111319">
+            <aside class="notes">
+              In a nutshell, the template from Google consists of a title, some meta keys like author, status, last time updated.
+              It sets up a context for your design, goals you'd like to achieve, overview, detailed design, cross-cutting concerns whatever that means, and also alternatives considered.
+            </aside>
+
+            <h2>Google Template</h2>
+            <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/google_template.png" width="50%" height="50%">
+          </section>
+          <section data-background="#111319">
+            <aside class="notes">
+              The article is from 2015, therefore I would have suspected that it has already been widely adopted.
+              When I did some research - it turned out that there's actually a dedicated term for this particular kind of document describing your design or architecture,
+              and it has done even more influence comparing to the Google's one. The term was introduced by Michael Nygard in 2011.
+              And this is essentially how we're going to get familiar with ADRs.
+            </aside>
             <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/outline2.png">
           </section>
         </section>
 
-        <section data-background="#111319">
-          <h2>Google Template</h2>
-          <img class="r-frame" style="background: rgba(0,0,0,0.1);" data-src="./images/google_template.png" width="50%" height="50%">
-        </section>
 
         <section data-background="#111319">
-
-
           <h2>What is (Software) Architecture?</h2>
           <section id="what-is-architecture">
-
-            <aside class="notes">What is architecture?</aside>
-
+            <aside class="notes">
+              So let's move a bit closer to the ADRs and answer a simple question: what is architecture?
+              A common definition would be like this: it represents the design decisions that shape a system.
+            </aside>
             <p class="fragment"><q>Architecture represents the significant design <em>decisions</em> that shape a system, where significant is measured by cost of change.</q><span class="fragment">— Grady Booch</span></p>
           </section>
         </section>
@@ -68,9 +89,9 @@
         <section data-background="#111319">
           <h2>What is Architecture Decision?</h2>
           <section id="what-is-ad">
-
-            <aside class="notes">What is AD?</aside>
-
+            <aside class="notes">
+              What is Architecture Decision then? It's a software design choice that captures functional or non-functional requirements that are architecturally significant.
+            </aside>
             <p class="fragment">An Architectural Decision (AD) is a software design choice that addresses a functional or non-functional requirement that is architecturally significant.</p>
           </section>
         </section>
@@ -78,18 +99,19 @@
         <section data-background="#111319">
           <h2>What is Architecture Decision Record?</h2>
           <section id="what-is-adr">
-
-            <aside class="notes">What is ADR?</aside>
-
+            <aside class="notes">
+              What is Architecture Decision Record? An ADR addresses single AD, in a way like when you're writing your personal notes or meeting minutes. A pack of ADRs inside a project constitutes project's decision log.
+            </aside>
             <p class="fragment">An Architectural Decision Record (ADR) captures a single AD, such as often done when writing personal notes or meeting minutes; the collection of ADRs created and maintained in a project constitutes its decision log.</p>
           </section>
         </section>
 
         <section data-background="#111319">
           <section id="madrs">
-
-            <aside class="notes">When talking about ADRs, there's two principal things.</aside>
-
+            <aside class="notes">
+              Speaking about ADRs, there's two principal requirements the authors had addressed.
+              It should be relatively easy as possible to write them down and version.
+            </aside>
             <p>It should be as easy as possible to:</p>
             <ul>
               <span class="fragment"><li>write down the ADRs</li></span>
@@ -102,9 +124,9 @@
 
         <section data-background="#111319">
           <section id="madrs">
-
-            <aside class="notes">Markdown comes to the rescue.</aside>
-
+            <aside class="notes">
+              That's where Markdown comes to the rescue.
+            </aside>
             <p>Markdown 🔥</p>
           </section>
         </section>
@@ -114,10 +136,10 @@
           <section id="adr-template">
 
             <aside class="notes">
-              So, let's take a look at a what a typical template would look like in ADR's world.
+              So, let's take a look at a what a typical Markdown template would look like in ADR's world.
 
-              And full disclosure of course: ADRs is just a concept, there's a bunch of templates available that can fit various project, from small to larger ones.
-              The template I personally find the most intuitive and easy to use is the one suggested my Michael Nygard in 2011, which interestingly enough is 4 year ahead the article from Google.
+              And full disclosure of course: ADRs is just a concept, there's a bunch of templates available that can fit various projects, from small to larger ones.
+              The template I personally find the most intuitive and easy to use is the one suggested my Michael Nygard initially in 2011.
               Conceptually, the document structure is similar to one we've seen so far. But let's take a closer look directly in the Markdown itself.
             </aside>
 
@@ -145,7 +167,7 @@
             <ul>
               <li>The document starts with the "Title", short but discoverable label</li>
               <li>Status: a meta field, the status of the work described, a dated list of status changes works as well</li>
-              <li>Context: what's the problem? What's the effect? Why did this problem was raised? Facts, not assumptions or opinions.</li>
+              <li>Context: what's the problem? What's the effect? Why did this problem appear? Write down facts, not assumptions or opinions.</li>
               <li>Decision: what should happen in order to mitigate the issue? How is success defined? What further recommendations are there? What are alternative solutions?</li>
               <li>Consequences: the resulting context, either good or bad. Basically, the effect of the work described</li>
             </ul>
@@ -174,13 +196,11 @@
         <section data-background="#111319">
           <h2>ADR In a nutshell</h2>
           <section id="whats-adr-in-a-nutshell">
-
             <aside class="notes">
-              So, in a nutshell, and ADR can be treated as a very lightweight document consisting of decision taken, it might include external links and reference to third party documents whenever required, but at the same time
-              the document itself stays compact and to-the-point. It might also live anywhere, in any format. Markdown is a preference though. A bit of a spoiler, since some of you might have guessed, the ideal place to store ADRs
+              So, in a nutshell, and ADR can be treated as a very lightweight document consisting of decision taken, it might include external links and references to third party documents whenever required, but at the same time
+              the document itself stays compact and to-the-point. It might also live anywhere, in any format. Markdown though would be a preference here. A bit of a spoiler, since some of you might have guessed, the ideal place to store ADRs
               would be your project's repository.
             </aside>
-
             <p><span class="fragment">ADRs should be considered as</span> <span class="fragment"><em>lightweight</em> records of decision making,</span> <span class="fragment">linking in other documents and content when required,</span> <span class="fragment">keeping ADR itself compact and to-the-point.</span> <span class="fragment">It can live <em>anywhere</em>, in <em>any</em> format.</span></p>
           </section>
           <section>
@@ -191,10 +211,9 @@
         <section data-background="#111319">
           <h2>Who writes ADRs and why?</h2>
           <section id="who-writes-adrs">
-
             <aside class="notes">
               <ul>
-                <li>ADRs can and should be written by any engineer in the team. They work best when decision are taken mutually</li>
+                <li>ADRs can and should be written by any engineer in the team. They work best when decision are taken jointly.</li>
                 <li>They should be considered as living documents, providing useful documentation throughout the life of a project.</li>
                 <li>They provide a common framework for the communication of technical decisions, which allows engineers of all levels a consistent way of influencing strategy.</li>
                 <li>Having a clear, supportive process around ADRs allows the democratization of architecture, stronger team alignment, and an effective foundation for advertising various engineering concepts and best practices as well.</li>
@@ -236,7 +255,7 @@
             Demo
             <aside class="notes">
               Without further ado let's jump into a real life example how me and Damian started using ADRs & log4brains just recently for one of our repositories.
-
+              Introduce log4brains, show default ADRs.
               Context: we decided to setup existing Appsilon's infrastructure in AWS from scratch by using best practices, things like zero-trust security, creating AWS accounts in an automated fashion.
               In order to do so, we first considered two available options AWS CT and Terraform.
             </aside>
